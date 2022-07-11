@@ -13,11 +13,12 @@ pico_sdk_init()
 
 add_executable(pico_standalone
   source/main.cpp
+  source/MPU6050.cpp
   )
 
 include(${MODEL_FOLDER}/edge-impulse-sdk/cmake/utils.cmake)
 
-target_link_libraries(pico_standalone pico_stdlib)
+target_link_libraries(pico_standalone pico_stdlib hardware_i2c)
 
 # enable usb output, disable uart output
 pico_enable_stdio_usb(pico_standalone 1)
